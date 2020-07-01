@@ -16,19 +16,20 @@ const connect = function() {
     conn.write('Name: ABT');
   });
 
-  conn.on('connect', connect => {
+//PLAY WITH MOVEMENT LOOP
+  // conn.on('connect', connect => { 
     
-    const move = (snakeMoves) => {
-      snakeMoves = ['Move: up', 'Move: up', 'Move: up', 'Move: right', 'Move: right', 'Move: right', 'Move: left', 'Move: left', 'Move: left', 'Move: down', 'Move: down', 'Move: down']
-      let delay = 0;
-      for(let movements of snakeMoves) {
-        setTimeout(() => conn.write(movements), delay);
-        delay += 50;
-      }
-    }
-    return move();
-    
-  })
+  //   const move = (snakeMoves) => {
+  //     snakeMoves = ['Move: up', 'Move: up', 'Move: up', 'Move: right', 'Move: right', 'Move: right', 'Move: left', 'Move: left', 'Move: left', 'Move: down', 'Move: down', 'Move: down']
+  //     let delay = 0;
+  //     for(let movements of snakeMoves) {
+  //       setTimeout(() => conn.write(movements), delay);
+  //       delay += 50;
+  //     }
+  //   }
+  //   return move();
+
+  // })
 
 
 
