@@ -1,25 +1,27 @@
-const net = require('net');
-
-const connect = function() {
-  const conn = net.createConnection({
-    host: '135.23.222.148',
-    port: 50541
-  });
-
-  conn.setEncoding('utf8');
-
-  conn.on("data", data => {
-    //do smthing when i receive the data
-    console.log(data);
-  })
-
-  return conn;
-}
+const { connect } = require('./client');
 
 console.log('Connecting...');
 
+const setupInput = function() {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding('utf8');
+  stdin.resume();
 
+  const handleUserInput = function() {
+    stdin.on('data', (key) => {
+      if (key === '\u0003') {
+        process.exit();
+      }
+    })
+  }
+  handleUserInput();
+
+  return stdin;
+}
 
 
 
 connect();
+
+setupInput();
